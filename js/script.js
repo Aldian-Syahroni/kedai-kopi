@@ -42,3 +42,33 @@ document.querySelector("#shopping-cart-btn").onclick = (e) => {
   shoppingCart.classList.toggle("active");
   e.preventDefault();
 };
+
+// modal box
+const itemDetailModal = document.querySelector("#item-detail-modal");
+const itemDetailBtns = document.querySelectorAll(".item-detail-button");
+
+itemDetailBtns.forEach((btn) => {
+  btn.onclick = (e) => {
+    itemDetailModal.style.display = "flex";
+    e.preventDefault();
+  };
+});
+
+itemDetailBtns.onclick = (e) => {
+  itemDetailModal.style.display = "flex";
+  e.preventDefault();
+};
+
+// klik tombol close
+document.querySelector(".modal .close-icon").onclick = (e) => {
+  itemDetailModal.style.display = "none";
+  e.preventDefault();
+};
+
+//  klik diluar modal
+
+window.onclick = (e) => {
+  if (e.target === itemDetailModal) {
+    itemDetailModal.style.display = "none";
+  }
+};
